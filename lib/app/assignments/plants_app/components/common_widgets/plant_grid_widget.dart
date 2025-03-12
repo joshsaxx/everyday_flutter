@@ -9,8 +9,8 @@ class PlantGridWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      /* width: 300,
-      height:300, */
+      /* width: 170,
+      height:200, */
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         color: Colors.white

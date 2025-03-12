@@ -91,7 +91,7 @@ class PlantsOnboardingScreen extends StatelessWidget {
                 ),
                 child: IconButton(onPressed: (){
 
-                  Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> const PlantDetailScreen()));
+                  Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> const PlantsHomePage()));
 
                 },icon: const Icon(Icons.arrow_forward,size: 50,color: Colors.white,)),
                             ),
