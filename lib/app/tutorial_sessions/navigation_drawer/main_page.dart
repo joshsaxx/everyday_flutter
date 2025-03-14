@@ -48,6 +48,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 4,
         title: const Text('Navigation Bar Tutorial'),
         backgroundColor: Defaults.drawerItemSelectedColor,
       ),
