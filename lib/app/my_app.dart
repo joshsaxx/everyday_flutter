@@ -8,6 +8,7 @@ import 'package:flutter_tuts/app/screens/home/home_screen.dart';
 import 'package:flutter_tuts/app/tutorial_sessions/appBar_tabBar/appBar_tabBar.dart';
 import 'package:flutter_tuts/app/tutorial_sessions/bottom_navigation/bottom_nav.dart';
 import 'package:flutter_tuts/app/tutorial_sessions/container_widget/container_widget.dart';
+import 'package:flutter_tuts/app/tutorial_sessions/dialogs_snackBars_bottomSheet/dialogs_snackbars.dart';
 import 'package:flutter_tuts/app/tutorial_sessions/fab_other_buttons/fab_widget.dart';
 import 'package:flutter_tuts/app/tutorial_sessions/image_icon_widget/image_widget.dart';
 import 'package:flutter_tuts/app/tutorial_sessions/listview_widget/listview_widget.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyFabWidgetScreen(),
+      home: MyDialogSnackBarWidgetScreen(),
     );
   }
 }
