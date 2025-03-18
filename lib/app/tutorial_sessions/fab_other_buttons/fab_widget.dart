@@ -98,7 +98,7 @@ class _MyFabWidgetScreenState extends State<MyFabWidgetScreen> {
 
             MaterialButton(
               shape: RoundedRectangleBorder(
-                side: BorderSide(
+                side: const BorderSide(
                   color: Colors.black,
                   width: 2,
                 ),
