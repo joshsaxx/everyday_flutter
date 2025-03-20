@@ -14,6 +14,7 @@ import 'package:flutter_tuts/app/tutorial_sessions/image_icon_widget/image_widge
 import 'package:flutter_tuts/app/tutorial_sessions/listview_widget/listview_widget.dart';
 import 'package:flutter_tuts/app/tutorial_sessions/navigation_drawer/main_page.dart';
 import 'package:flutter_tuts/app/tutorial_sessions/profile_ui/profile_ui_screen.dart';
+import 'package:flutter_tuts/app/tutorial_sessions/responsive_ui/responsive_ui.dart';
 import 'package:flutter_tuts/app/tutorial_sessions/row_column_widgets/column_widget.dart';
 import 'package:flutter_tuts/app/tutorial_sessions/row_column_widgets/row_widget.dart';
 import 'package:flutter_tuts/app/tutorial_sessions/stack_positioned_widgets/stack_widget.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyTextFieldMainPage(),
+      home: ResponsiveUIScreen(),
     );
   }
 }
