@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class ResponsiveUIScreen extends StatefulWidget {
   const ResponsiveUIScreen({super.key});
@@ -10,11 +11,39 @@ class ResponsiveUIScreen extends StatefulWidget {
 class _ResponsiveUIScreenState extends State<ResponsiveUIScreen> {
   @override
   Widget build(BuildContext context) {
+
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+    Orientation orientation = MediaQuery.of(context).orientation;
+
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Responsive Layouts'),
       ),
-      body: GridData(),
+      //using height and width for responsiveness
+      //body: width> 480 ? GridData() : ListData(),
+      //making use of Orientation for responsiveness
+      //body: orientation == Orientation.portrait ? ListData() : GridData(),
+      body: LayoutBuilder(
+        builder: (context, constraints){
+          //constraints gives available space of the parent of the LayoutBuilder and in this case, Scaffold
+          
+          print("Media : $width");
+          print("Media : $height");
+
+          print("Builder : ${constraints.maxWidth}");
+          print("Builder : ${constraints.maxHeight}");
+
+          //difference in height cos of appBar presence, LayoutBuilder is taking the available space after the appBar
+
+          if(constraints.maxWidth > 500){
+            return GridData();
+          }else{
+            return ListData();
+          }
+        })
+        ,
     );
   }
 }
