@@ -9,6 +9,7 @@ class MainIndexPage extends StatefulWidget {
 }
 
 class _MainIndexPageState extends State<MainIndexPage> {
+  dynamic result = 'Data expected';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,10 +42,25 @@ class _MainIndexPageState extends State<MainIndexPage> {
                   borderRadius: BorderRadius.circular(5)
                 )
               ),
-              onPressed: (){
-                Navigator.of(context).pushNamed(RouteManager.lastRoutePage);
+              //waiting to receive data from page 
+              onPressed: () async{
+                var resultSentBack = await Navigator.of(context).pushNamed(RouteManager.lastRoutePage, arguments: {
+                  'name' : 'Josh Saxx',
+                });
+
+                setState(() {
+                  result = resultSentBack ?? "";
+                });
+
               }, 
-              child: const Text('Go to Last Page'))
+              /* onPressed: (){
+                Navigator.of(context).pushNamed(RouteManager.lastRoutePage, arguments: {
+                  'name' : 'Josh Saxx',
+                });
+              },  */
+              child: const Text('Go to Last Page')),
+
+              Text(result)
           ],
         ),
       ),

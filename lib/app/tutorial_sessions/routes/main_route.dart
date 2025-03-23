@@ -7,7 +7,10 @@ class MainRoute extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.grey[200] 
+      ),
       initialRoute: RouteManager.mainIndex,
       onGenerateRoute: RouteManager.generateRoute,
     );
