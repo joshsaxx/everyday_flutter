@@ -19,6 +19,7 @@ import 'package:flutter_tuts/app/tutorial_sessions/row_column_widgets/column_wid
 import 'package:flutter_tuts/app/tutorial_sessions/row_column_widgets/row_widget.dart';
 import 'package:flutter_tuts/app/tutorial_sessions/stack_positioned_widgets/stack_widget.dart';
 import 'package:flutter_tuts/app/tutorial_sessions/state_management/intro.dart';
+import 'package:flutter_tuts/app/tutorial_sessions/state_management/provider_intro.dart';
 import 'package:flutter_tuts/app/tutorial_sessions/stateless_stateful/stateless_stateful_main.dart';
 import 'package:flutter_tuts/app/tutorial_sessions/textFields/textField_widget.dart';
 
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: StateManagementMainPage(),
+      home: ProviderMainPage(),
     );
   }
 } 
