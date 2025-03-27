@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class ProviderMainPage extends StatefulWidget {
+class ProviderMainPage extends StatelessWidget {
   const ProviderMainPage({super.key});
 
-  @override
-  State<ProviderMainPage> createState() => _ProviderMainPageState();
-}
-
-class _ProviderMainPageState extends State<ProviderMainPage> {
   @override
   Widget build(BuildContext context) {
     print('Building MainPage');
@@ -19,7 +14,16 @@ class _ProviderMainPageState extends State<ProviderMainPage> {
           appBar: AppBar(
             backgroundColor: Colors.blue[400],
             foregroundColor: Colors.white,
-            title: Text(Provider.of<AppData>(context).name),
+            //title: Text(Provider.of<AppData>(context).name),
+            //title: Text(context.watch<AppData>().name)
+
+            //Wrap with Consumer to listen for the widget that is to be rebuilt, in this case, the Text Widget and not the entire class or screen
+            title: Consumer<AppData>(
+              builder: (context, value, child) {
+                return Text(context.watch<AppData>().name);
+              },
+              ),
+
           ),
           body: Screen2(),
         );
@@ -60,7 +64,15 @@ class Screen4 extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(Provider.of<AppData>(context).name),
+          //Text(Provider.of<AppData>(context).name),
+          //Text(context.watch<AppData>().name),
+
+          Consumer<AppData>(
+              builder: (context, value, child) {
+                return Text(context.watch<AppData>().name);
+              },
+              ),
+
           ElevatedButton(
             style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blue[400],
@@ -69,9 +81,11 @@ class Screen4 extends StatelessWidget {
                     borderRadius: BorderRadius.circular(5))),
             onPressed: () {
               //listen: false because the ElevatedButton is not part of the main widget tree that has its scaffold wrapped with ChangeNotifierProvider
-              Provider.of<AppData>(context,listen: false).changeData('John Doe');
+              //Provider.of<AppData>(context,listen: false).changeData('John Doe');
+
+              context.read<AppData>().changeData('John Doe');
             },
-            child: Text('Change data'),
+            child: const Text('Change data'),
           ),
         ],
       ),
