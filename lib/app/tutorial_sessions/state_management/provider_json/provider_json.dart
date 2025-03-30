@@ -27,14 +27,42 @@ class ProviderJson extends StatelessWidget {
                           ? Text(
                               'Oops!! Something went wrong. ${value.errorMessage}',
                               textAlign: TextAlign.center)
-                          : ListView.builder(itemBuilder: (context, index) {
-                              return const Text('Hello');
+                          : ListView.builder(
+                            itemCount: value.map['androidCurrentVersion'].length,
+                            itemBuilder: (context, index) {
+                              return NewsCard(map: value.map['androidCurrentVersion']);
                             });
                 }),
               ),
               onRefresh: () async {}),
         );
       },
+    );
+  }
+}
+
+
+class NewsCard extends StatelessWidget {
+  final Map<String,dynamic> map;
+  const NewsCard({super.key,required this.map});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.all(8.0),
+      child: Card(
+        elevation: 10,
+        child: Padding(
+          padding:  EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+
+            ],
+          ),
+        ),
+      
+      ),
     );
   }
 }
