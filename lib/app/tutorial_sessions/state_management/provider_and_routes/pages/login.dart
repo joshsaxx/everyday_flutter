@@ -3,7 +3,7 @@ import 'package:flutter_tuts/app/tutorial_sessions/state_management/provider_and
 
 
 class Login extends StatefulWidget {
-  const Login({Key? key}) : super(key: key);
+   const Login({super.key});
 
   @override
   _LoginState createState() => _LoginState();
@@ -23,7 +23,9 @@ class _LoginState extends State<Login> {
     print('Building Login');
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login'),
+        backgroundColor: Colors.blue[400],
+        foregroundColor: Colors.white,
+        title: const Text('Login'),
       ),
       body: Center(
         child: Column(
@@ -34,16 +36,21 @@ class _LoginState extends State<Login> {
               child: TextField(
                 keyboardType: TextInputType.text,
                 controller: usernameController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Please enter your username'),
               ),
             ),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue[400],
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5))),
               onPressed: () {
                 Navigator.of(context).pushNamed(RouteManager.mainPage);
               },
-              child: Text('Submit'),
+              child: const Text('Submit'),
             ),
           ],
         ),

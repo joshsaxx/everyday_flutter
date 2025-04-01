@@ -13,21 +13,21 @@ class RouteManager {
     switch (settings.name) {
       case loginPage:
         return MaterialPageRoute(
-          builder: (context) => Login(),
+          builder: (context) => const Login(),
         );
 
       case mainPage:
         return MaterialPageRoute(
-          builder: (context) => MainPage(),
+          builder: (context) => const MainPage(),
         );
 
       case settingsPage:
         return MaterialPageRoute(
-          builder: (context) => Settings(),
+          builder: (context) => const Settings(),
         );
 
       default:
-        throw FormatException('Route not found! Check routes again!');
+        throw const FormatException('Route not found! Check routes again!');
     }
   }
 }
