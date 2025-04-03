@@ -14,7 +14,8 @@ class NewsData with ChangeNotifier {
 
   Future<void> get fetchData async {
     final response = await get(
-        Uri.parse('https://api.changoglobal.com/api/version/getAppCurrentVersion'));
+        //Uri.parse('https://api.changoglobal.com/api/version/getAppCurrentVersion'));
+        Uri.parse('https://apiuat.changoglobal.com/api/member/migrated-status/joshtest2%40gmail.com'));
 
     if (response.statusCode == 200) {
       try {

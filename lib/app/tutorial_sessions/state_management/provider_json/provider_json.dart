@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tuts/app/tutorial_sessions/state_management/provider_json/models/news_data.dart';
+import 'package:flutter_tuts/app/tutorial_sessions/state_management/provider_json/widgets/news_card.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class ProviderJson extends StatelessWidget {
@@ -17,6 +19,12 @@ class ProviderJson extends StatelessWidget {
             foregroundColor: Colors.white,
             backgroundColor: Colors.blue[400],
             title: const Text("Top Stories - Saxx News"),
+            actions: [
+              IconButton(onPressed: (){
+                context.read<NewsData>().initialValues();
+                context.read<NewsData>().fetchData;
+              }, icon: const Icon(Icons.refresh))
+            ],
           ),
           body: RefreshIndicator(
               child: Center(
@@ -28,13 +36,16 @@ class ProviderJson extends StatelessWidget {
                               'Oops!! Something went wrong. ${value.errorMessage}',
                               textAlign: TextAlign.center)
                           : ListView.builder(
-                            itemCount: value.map['androidCurrentVersion'].length,
+                            itemCount: value.map['member'].length,
                             itemBuilder: (context, index) {
-                              return NewsCard(map: value.map['androidCurrentVersion']);
+                              return NewsCard(map: value.map['member']);
                             });
                 }),
               ),
-              onRefresh: () async {}),
+              onRefresh: () async {
+                await context.read<NewsData>().fetchData;
+
+              }),
         );
       },
     );
@@ -42,27 +53,4 @@ class ProviderJson extends StatelessWidget {
 }
 
 
-class NewsCard extends StatelessWidget {
-  final Map<String,dynamic> map;
-  const NewsCard({super.key,required this.map});
 
-  @override
-  Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.all(8.0),
-      child: Card(
-        elevation: 10,
-        child: Padding(
-          padding:  EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-
-            ],
-          ),
-        ),
-      
-      ),
-    );
-  }
-}
