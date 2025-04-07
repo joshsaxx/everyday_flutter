@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tuts/app/tutorial_sessions/state_management/provider_and_routes/models/user.dart';
+import 'package:flutter_tuts/app/tutorial_sessions/state_management/provider_and_routes/provider_routes.dart';
 import 'package:flutter_tuts/app/tutorial_sessions/state_management/provider_and_routes/routes/routes.dart';
+import 'package:provider/provider.dart';
 
 
 class Login extends StatefulWidget {
@@ -48,6 +51,9 @@ class _LoginState extends State<Login> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(5))),
               onPressed: () {
+                //can't use consumer cos we're inside of a function
+                context.read<User>().username = usernameController.text;
+                
                 Navigator.of(context).pushNamed(RouteManager.mainPage);
               },
               child: const Text('Submit'),

@@ -1,29 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tuts/app/tutorial_sessions/state_management/provider_and_routes/models/settings_data.dart';
+import 'package:flutter_tuts/app/tutorial_sessions/state_management/provider_and_routes/models/user.dart';
 import 'package:flutter_tuts/app/tutorial_sessions/state_management/provider_and_routes/routes/routes.dart';
+import 'package:provider/provider.dart';
 
 
 class MainPage extends StatelessWidget {
-  const MainPage({Key? key}) : super(key: key);
+  const MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     print('Building MainPage');
     return Scaffold(
       appBar: AppBar(
+        //context.watch cos it listens and read doesn't
+        backgroundColor: context.watch<SettingsData>().appBarColor,
         automaticallyImplyLeading: false,
-        title: Text('Main Screen'),
+        title: const Text('Main Screen'),
         actions: [
           IconButton(
             onPressed: () {
               Navigator.of(context).pushNamed(RouteManager.settingsPage);
             },
-            icon: Icon(Icons.settings),
+            icon: const Icon(Icons.settings),
           ),
           IconButton(
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: Icon(Icons.exit_to_app),
+            icon: const Icon(Icons.exit_to_app),
           ),
         ],
       ),
@@ -31,9 +36,15 @@ class MainPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Welcome',
-              style: TextStyle(fontSize: 24),
+            Consumer<User>(
+              builder: (context, value, child) {
+                //value.username cos value is now an instance of User thanks to consumer
+                return Text(
+                'Welcome, ${value.username}',
+                style: const TextStyle(fontSize: 24),
+              );
+              }
+              
             ),
           ],
         ),
