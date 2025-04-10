@@ -21,9 +21,12 @@ class SharedPrefSettings extends StatelessWidget {
           SwitchListTile(
             activeColor: Colors.white,
             activeTrackColor: Colors.blue[400],
-              title: const Text('Dark Mode'),
-              value: true,
-              onChanged: (value) {})
+            title: const Text('Dark Mode'),
+            value: true,
+            onChanged: (value) {
+              
+            },
+          )
         ],
       ),
     );
