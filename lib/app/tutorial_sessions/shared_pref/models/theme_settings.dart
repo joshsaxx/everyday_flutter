@@ -53,10 +53,20 @@ ThemeData darkTheme = ThemeData(
 class ThemeSettings with ChangeNotifier{
 
   bool _darkTheme = false;
-
   SharedPreferences? _preferences;
+  bool _doneLoading = false;
 
   bool get darkTheme => _darkTheme;
+  bool get doneLoading => _doneLoading;
+
+  /* so _doneLoading called first, which is false initially, 
+  next, _loadSettingsFromPrefs is called 
+  then setDoneLoading is called to set value to true when _loadSettingsFromPrefs is done */
+
+  set doneLoading (bool value){
+    _doneLoading = value;
+    notifyListeners();
+  }
   
   //once an instance of ThemeSettings is called, _loadSettingsFromPrefs runs to give initial value etc. 
   ThemeSettings(){
