@@ -1,0 +1,2 @@
+/Users/jannan/Desktop/workSpace/playground/flutterProjs/flutter_tuts/android/app/.cxx/Debug/m5k5a511/armeabi-v7a/CMakeFiles/edit_cache.dir
+/Users/jannan/Desktop/workSpace/playground/flutterProjs/flutter_tuts/android/app/.cxx/Debug/m5k5a511/armeabi-v7a/CMakeFiles/rebuild_cache.dir
